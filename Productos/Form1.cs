@@ -14,7 +14,7 @@ namespace Productos {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
-            estado = 0;
+            estado = 12;
         }
     }
 }
