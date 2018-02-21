@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Productos {
+
+    private int estado;
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
+            estado = 0;
         }
     }
 }
