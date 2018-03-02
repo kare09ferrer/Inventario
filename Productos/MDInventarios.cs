@@ -94,7 +94,6 @@ namespace Productos {
             FormProductos formProductos = new FormProductos();
             formProductos.MdiParent = this;
             formProductos.Show();
-
         }
     }
 }

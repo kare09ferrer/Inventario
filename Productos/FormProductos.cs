@@ -18,8 +18,7 @@ namespace Productos {
             this.Validate();
             this.productosBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.inventariosDataSet);
-            MessageBox.Show("Producto guardado exitosamente");
-
+            MessageBox.Show("Se guardo bien");
         }
 
         private void FormProductos_Load(object sender, EventArgs e) {
@@ -27,9 +26,7 @@ namespace Productos {
             this.categoriasTableAdapter.Fill(this.inventariosDataSet.categorias);
             // TODO: esta línea de código carga datos en la tabla 'inventariosDataSet.productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.inventariosDataSet.productos);
-        }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e) {
         }
     }
 }

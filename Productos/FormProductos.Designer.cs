@@ -24,15 +24,14 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label nombreLabel;
             System.Windows.Forms.Label nu_categoriaLabel;
+            System.Windows.Forms.Label nombreLabel;
             System.Windows.Forms.Label descripcionLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             this.inventariosDataSet = new Productos.inventariosDataSet();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new Productos.inventariosDataSetTableAdapters.productosTableAdapter();
             this.tableAdapterManager = new Productos.inventariosDataSetTableAdapters.TableAdapterManager();
-            this.categoriasTableAdapter = new Productos.inventariosDataSetTableAdapters.categoriasTableAdapter();
             this.productosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -46,12 +45,13 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.productosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.nombreTextBox = new System.Windows.Forms.TextBox();
-            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nu_categoriaComboBox = new System.Windows.Forms.ComboBox();
+            this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.descripcionRichTextBox = new System.Windows.Forms.RichTextBox();
-            nombreLabel = new System.Windows.Forms.Label();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriasTableAdapter = new Productos.inventariosDataSetTableAdapters.categoriasTableAdapter();
             nu_categoriaLabel = new System.Windows.Forms.Label();
+            nombreLabel = new System.Windows.Forms.Label();
             descripcionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.inventariosDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
@@ -60,32 +60,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(51, 69);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
-            nombreLabel.TabIndex = 3;
-            nombreLabel.Text = "Nombre:";
-            // 
             // nu_categoriaLabel
             // 
             nu_categoriaLabel.AutoSize = true;
-            nu_categoriaLabel.Location = new System.Drawing.Point(43, 42);
+            nu_categoriaLabel.Location = new System.Drawing.Point(70, 72);
             nu_categoriaLabel.Name = "nu_categoriaLabel";
-            nu_categoriaLabel.Size = new System.Drawing.Size(55, 13);
-            nu_categoriaLabel.TabIndex = 6;
-            nu_categoriaLabel.Text = "Categoria:";
+            nu_categoriaLabel.Size = new System.Drawing.Size(69, 13);
+            nu_categoriaLabel.TabIndex = 3;
+            nu_categoriaLabel.Text = "nu categoria:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(70, 99);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(45, 13);
+            nombreLabel.TabIndex = 5;
+            nombreLabel.Text = "nombre:";
             // 
             // descripcionLabel
             // 
             descripcionLabel.AutoSize = true;
-            descripcionLabel.Location = new System.Drawing.Point(32, 95);
+            descripcionLabel.Location = new System.Drawing.Point(70, 125);
             descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new System.Drawing.Size(66, 13);
+            descripcionLabel.Size = new System.Drawing.Size(64, 13);
             descripcionLabel.TabIndex = 7;
-            descripcionLabel.Text = "Descripción:";
+            descripcionLabel.Text = "descripcion:";
             // 
             // inventariosDataSet
             // 
@@ -104,16 +104,12 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.categoriasTableAdapter = this.categoriasTableAdapter;
+            this.tableAdapterManager.categoriasTableAdapter = null;
             this.tableAdapterManager.entradasTableAdapter = null;
             this.tableAdapterManager.inventariosTableAdapter = null;
             this.tableAdapterManager.productosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.ubicacionesTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Productos.inventariosDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // categoriasTableAdapter
-            // 
-            this.categoriasTableAdapter.ClearBeforeFill = true;
             // 
             // productosBindingNavigator
             // 
@@ -141,7 +137,7 @@
             this.productosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productosBindingNavigator.Name = "productosBindingNavigator";
             this.productosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productosBindingNavigator.Size = new System.Drawing.Size(369, 25);
+            this.productosBindingNavigator.Size = new System.Drawing.Size(323, 25);
             this.productosBindingNavigator.TabIndex = 0;
             this.productosBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -239,58 +235,55 @@
             this.productosBindingNavigatorSaveItem.Text = "Guardar datos";
             this.productosBindingNavigatorSaveItem.Click += new System.EventHandler(this.productosBindingNavigatorSaveItem_Click);
             // 
+            // nu_categoriaComboBox
+            // 
+            this.nu_categoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productosBindingSource, "nu_categoria", true));
+            this.nu_categoriaComboBox.DataSource = this.categoriasBindingSource;
+            this.nu_categoriaComboBox.DisplayMember = "nombre";
+            this.nu_categoriaComboBox.FormattingEnabled = true;
+            this.nu_categoriaComboBox.Location = new System.Drawing.Point(145, 69);
+            this.nu_categoriaComboBox.Name = "nu_categoriaComboBox";
+            this.nu_categoriaComboBox.Size = new System.Drawing.Size(121, 21);
+            this.nu_categoriaComboBox.TabIndex = 4;
+            this.nu_categoriaComboBox.ValueMember = "id";
+            // 
             // nombreTextBox
             // 
-            this.nombreTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "nombre", true));
-            this.nombreTextBox.Location = new System.Drawing.Point(104, 66);
+            this.nombreTextBox.Location = new System.Drawing.Point(145, 96);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(253, 20);
-            this.nombreTextBox.TabIndex = 4;
+            this.nombreTextBox.Size = new System.Drawing.Size(121, 20);
+            this.nombreTextBox.TabIndex = 6;
+            // 
+            // descripcionRichTextBox
+            // 
+            this.descripcionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "descripcion", true));
+            this.descripcionRichTextBox.Location = new System.Drawing.Point(145, 122);
+            this.descripcionRichTextBox.Name = "descripcionRichTextBox";
+            this.descripcionRichTextBox.Size = new System.Drawing.Size(121, 96);
+            this.descripcionRichTextBox.TabIndex = 8;
+            this.descripcionRichTextBox.Text = "";
             // 
             // categoriasBindingSource
             // 
             this.categoriasBindingSource.DataMember = "categorias";
             this.categoriasBindingSource.DataSource = this.inventariosDataSet;
             // 
-            // nu_categoriaComboBox
+            // categoriasTableAdapter
             // 
-            this.nu_categoriaComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nu_categoriaComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productosBindingSource, "nu_categoria", true));
-            this.nu_categoriaComboBox.DataSource = this.categoriasBindingSource;
-            this.nu_categoriaComboBox.DisplayMember = "nombre";
-            this.nu_categoriaComboBox.FormattingEnabled = true;
-            this.nu_categoriaComboBox.Location = new System.Drawing.Point(104, 39);
-            this.nu_categoriaComboBox.Name = "nu_categoriaComboBox";
-            this.nu_categoriaComboBox.Size = new System.Drawing.Size(253, 21);
-            this.nu_categoriaComboBox.TabIndex = 7;
-            this.nu_categoriaComboBox.ValueMember = "id";
-            // 
-            // descripcionRichTextBox
-            // 
-            this.descripcionRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.descripcionRichTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productosBindingSource, "descripcion", true));
-            this.descripcionRichTextBox.Location = new System.Drawing.Point(104, 92);
-            this.descripcionRichTextBox.Name = "descripcionRichTextBox";
-            this.descripcionRichTextBox.Size = new System.Drawing.Size(253, 204);
-            this.descripcionRichTextBox.TabIndex = 8;
-            this.descripcionRichTextBox.Text = "";
+            this.categoriasTableAdapter.ClearBeforeFill = true;
             // 
             // FormProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(369, 308);
-            this.Controls.Add(descripcionLabel);
-            this.Controls.Add(this.descripcionRichTextBox);
+            this.ClientSize = new System.Drawing.Size(323, 262);
             this.Controls.Add(nu_categoriaLabel);
             this.Controls.Add(this.nu_categoriaComboBox);
             this.Controls.Add(nombreLabel);
             this.Controls.Add(this.nombreTextBox);
+            this.Controls.Add(descripcionLabel);
+            this.Controls.Add(this.descripcionRichTextBox);
             this.Controls.Add(this.productosBindingNavigator);
             this.Name = "FormProductos";
             this.Text = "FormProductos";
@@ -325,10 +318,10 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton productosBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox nombreTextBox;
-        private inventariosDataSetTableAdapters.categoriasTableAdapter categoriasTableAdapter;
-        private System.Windows.Forms.BindingSource categoriasBindingSource;
         private System.Windows.Forms.ComboBox nu_categoriaComboBox;
+        private System.Windows.Forms.TextBox nombreTextBox;
         private System.Windows.Forms.RichTextBox descripcionRichTextBox;
+        private System.Windows.Forms.BindingSource categoriasBindingSource;
+        private inventariosDataSetTableAdapters.categoriasTableAdapter categoriasTableAdapter;
     }
 }
