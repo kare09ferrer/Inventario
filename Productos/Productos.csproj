@@ -113,6 +113,12 @@
     <Compile Include="FormCategorias.Designer.cs">
       <DependentUpon>FormCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInventarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInventarios.Designer.cs">
+      <DependentUpon>FormInventarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInventarios.resx">
+      <DependentUpon>FormInventarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>
